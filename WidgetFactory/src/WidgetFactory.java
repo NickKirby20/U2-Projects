@@ -1,3 +1,8 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class WidgetFactory {
 
     /*
@@ -28,4 +33,59 @@ public class WidgetFactory {
      Profit: $760.00
 
      */
+
+    static int WidgetFactory = 0;
+    static JTextField textInputField;
+
+
+    public static void main(String[] args) {
+
+
+
+
+        JFrame window = new JFrame("Widget Factory");
+        JPanel panel = new JPanel();
+       textInputField = new JTextField(10);
+        //JLabel textInputLabel = new JLabel("Number of widgets: ");
+        JLabel widgetLabel = new JLabel("Number of widgets: ");
+
+        JLabel textInputLabel2 = new JLabel("Amount of days: ");
+        textInputField = new JTextField(10);
+
+        //JButton priceOfWidget = new JButton();
+
+        window.setSize(350, 100);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLocationRelativeTo(null);
+
+        //priceOfWidget.addActionListener(new ButtonListener());
+
+
+        //panel.add(priceOfWidget);
+        panel.add(textInputLabel2);
+        panel.add(textInputField);
+        panel.add(widgetLabel);
+        panel.add(textInputField);
+        //panel.add();
+        window.add(panel);
+        window.setVisible(true);
+
+
+    }
+
+    private static class ButtonListener implements ActionListener{
+
+
+        public void actionPerformed(ActionEvent actionEvent) {
+
+            int multiplier =Integer.parseInt(textInputField.getText());
+
+            WidgetFactory += multiplier;
+            textInputField.setText("Balance:  $" + WidgetFactory);
+
+
+
+        }
+    }
+
 }
